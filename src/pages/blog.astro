@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Blog } from '../components/Blog';
+import { Button } from '../components/ui/button';
+---
+
+<Layout title="Blog - Developer Portfolio">
+  <main class="flex-1">
+    <section class="py-16 md:py-24">
+      <div class="container">
+        <div class="mb-12 text-center">
+          <h1 class="mb-4 text-4xl font-bold md:text-5xl">Blog</h1>
+          <p class="mx-auto max-w-2xl text-muted-foreground">
+            Thoughts, tutorials, and insights about web development, design, and technology.
+          </p>
+        </div>
+
+        {/* Categories */}
+        <div class="mb-12 flex flex-wrap justify-center gap-2">
+          <Button variant="outline" size="sm" class="rounded-full">All</Button>
+          <Button variant="outline" size="sm" class="rounded-full">Development</Button>
+          <Button variant="outline" size="sm" class="rounded-full">Design</Button>
+          <Button variant="outline" size="sm" class="rounded-full">Performance</Button>
+          <Button variant="outline" size="sm" class="rounded-full">Technology</Button>
+        </div>
+
+        {/* Blog Posts */}
+        <Blog client:load />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+</style>

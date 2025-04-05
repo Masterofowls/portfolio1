@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { motion } from 'framer-motion';
+
+const skills = [
+  { name: 'Frontend Development', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'] },
+  { name: 'Backend Development', items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB'] },
+  { name: 'Tools & Others', items: ['Git', 'Docker', 'AWS', 'CI/CD'] },
+];
+
+const experiences = [
+  {
+    title: 'Senior Frontend Developer',
+    company: 'Tech Company',
+    period: '2022 - Present',
+    description: 'Led frontend development for multiple high-impact projects.',
+  },
+  {
+    title: 'Full Stack Developer',
+    company: 'Startup Inc.',
+    period: '2020 - 2022',
+    description: 'Developed and maintained full-stack applications.',
+  },
+];
+---
+
+<Layout title="About Me">
+  <div class="container mx-auto px-4 py-20">
+    <div class="mx-auto max-w-4xl space-y-16">
+      <!-- About Section -->
+      <section class="space-y-8">
+        <h1 class="bg-gradient-to-r from-foreground to-accent/80 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+          About Me
+        </h1>
+        <p class="text-lg text-muted-foreground">
+          I'm a passionate web developer with over 5 years of experience in creating modern, responsive, and user-friendly applications. I specialize in frontend development with React and TypeScript, while also having strong backend skills.
+        </p>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="space-y-8">
+        <h2 class="text-2xl font-bold text-foreground md:text-3xl">Skills & Technologies</h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          {skills.map((category) => (
+            <div class="rounded-lg border bg-card/50 p-6 backdrop-blur supports-[backdrop-filter]:bg-card/30">
+              <h3 class="mb-4 text-lg font-semibold text-foreground">{category.name}</h3>
+              <ul class="space-y-2">
+                {category.items.map((skill) => (
+                  <li class="flex items-center text-muted-foreground">
+                    <svg
+                      class="mr-2 h-4 w-4 text-accent"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4"
+                      />
+                    </svg>
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="space-y-8">
+        <h2 class="text-2xl font-bold text-foreground md:text-3xl">Experience</h2>
+        <div class="space-y-8">
+          {experiences.map((exp) => (
+            <div class="rounded-lg border bg-card/50 p-6 backdrop-blur supports-[backdrop-filter]:bg-card/30">
+              <h3 class="text-lg font-semibold text-foreground">{exp.title}</h3>
+              <div class="mt-2 flex items-center text-sm text-muted-foreground">
+                <span>{exp.company}</span>
+                <span class="mx-2">•</span>
+                <span>{exp.period}</span>
+              </div>
+              <p class="mt-4 text-muted-foreground">{exp.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
